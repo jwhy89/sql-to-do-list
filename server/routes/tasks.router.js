@@ -9,7 +9,7 @@ const pool = require('./pool.js');
 
 tasksRouter.get('/', (req, res) => {
     // Get the tasks from the database
-    pool.query('SELECT * FROM "tasks" ORDER BY "name";')
+    pool.query('SELECT * FROM "to-do-list" ORDER BY "completed";')
         .then((result) => {
             res.send(result.rows);
         })
@@ -22,14 +22,14 @@ tasksRouter.get('/', (req, res) => {
 // POST
 // Add a task to the database
 // Expects a task object on the request body with
-// properties for "name", "gender", "age", "transfer", "notes"
+// properties for "task", "completed"
 tasksRouter.post('/', (req, res) => {
     let task = req.body;
     console.log('Adding task', task);
 
-    let sqlText = `INSERT INTO "tasks" ("name", "gender", "age", "transfer", "notes") 
-    VALUES ($1, $2, $3, $4, $5);`;
-    pool.query(sqlText, [task.name, task.gender, task.age, task.transfer, task.notes])
+    let sqlText = `INSERT INTO "to-do-list" ("task", "completed") 
+    VALUES ($1, $2);`;
+    pool.query(sqlText, [task.task, task.completed,])
         .then((response) => {
             res.sendStatus(201);
         })
@@ -47,7 +47,7 @@ tasksRouter.put('/:id', (req, res) => {
     let taskId = req.params.id;
     let taskData = req.body;
     console.log(`Updating task id=${taskId} with data`, taskData);
-    let sqlText = `UPDATE "tasks" SET "name"=$1 WHERE "id"=$2;`
+    let sqlText = `UPDATE "to-do-list" SET "name"=$1 WHERE "id"=$2;`
     pool.query(sqlText, [taskData.name, taskId])
         .then((result) => {
             res.sendStatus(200);
@@ -63,7 +63,7 @@ tasksRouter.put('/:id', (req, res) => {
 tasksRouter.delete('/:id', (req, res) => {
     let id = req.params.id;
     console.log(`Deleting task with id=${id}`);
-    let sqlText = `DELETE FROM "tasks" WHERE "id"=$1`;
+    let sqlText = `DELETE FROM "to-do-list" WHERE "id"=$1`;
     pool.query(sqlText, [id])
         .then((result) => {
             res.sendStatus(200);

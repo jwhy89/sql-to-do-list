@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Guess A Number!</title>
+  <title>Jay's To-Do-List</title>
   <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
   
   <script src="vendors/jquery.min.js"></script>
@@ -16,47 +16,27 @@
 </head>
 <body>
   <header>
-    <img src="images/icon.png" class="icon" />
-    <h1>Koala Holla</h1>
-    <h3>1976 Llama Comma Drive</h2>
-      <h3>Walla Walla, WA</h2>
+    <img src="images/icon.jpg" class="icon" />
+    <h1>Jay's To-Do-List</h1>
   </header>
-  <section id="addKoala">
-    <h2>Add Koala</h2>
-    <input type="text" id="nameIn" value="" placeholder="Name">
-    <input type="number" id="ageIn" value="" placeholder="Age">
-    <select id="genderIn">
-      <option value="M"> Male </option>
-      <option value="F"> Female </option>
-    </select>
-
-    <select id="readyForTransferIn">
-      <option value="Y"> Y </option>
-      <option value="N"> N</option>
-    </select>
-
-
-
-    <!-- <input type="text" id="genderIn" value="" placeholder="Gender">
-      <input type="text" id="readyForTransferIn" value="" placeholder="Transfer"> -->
-
-    <input type="text" id="notesIn" value="" placeholder="Notes">
-    <button type="button" id="addButton">Add Koala</button>
+  <section id="addTasks">
+    <h2>Add Task</h2>
+    <input type="text" id="taskIn" value="" placeholder="Add Task">
+    <button type="button" id="addTaskButton">Add Task</button>
   </section>
   <section>
-    <h2>All Koalas</h2>
+    <h2>All Tasks</h2>
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Gender</th>
-          <th>Ready for Transfer</th>
-          <th>Notes</th>
+          <th>Task</th>
+          <th>Completed</th>
+          <th>&nbsp;</th>
           <th>&nbsp;</th>
         </tr>
       </thead>
-      <tbody id="viewKoalas">
+      <tbody id="viewTasks">
+        <!-- jQuery will put to-do-list here-->
       </tbody>
     </table>
   </section>
