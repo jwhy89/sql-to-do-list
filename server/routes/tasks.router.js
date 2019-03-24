@@ -41,7 +41,7 @@ tasksRouter.post('/', (req, res) => {
 })
 
 // PUT
-// this will update task based on id
+// this will update task based on id for completion status
 tasksRouter.put('/:id', (req, res) => {
     let taskId = req.params.id;
     let taskData = req.body;
