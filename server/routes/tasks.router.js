@@ -40,14 +40,13 @@ tasksRouter.post('/', (req, res) => {
         })
 })
 
-
 // PUT
 // this will update task based on id
 tasksRouter.put('/:id', (req, res) => {
     let taskId = req.params.id;
     let taskData = req.body;
     console.log(`Updating task id=${taskId} with data`, taskData);
-    let sqlText = `UPDATE "to-do-list" SET "name"=$1 WHERE "id"=$2;`
+    let sqlText = `UPDATE "to-do-list" SET "completed"=$1 WHERE "id"=$2;`
     pool.query(sqlText, [taskData.name, taskId])
         .then((result) => {
             res.sendStatus(200);

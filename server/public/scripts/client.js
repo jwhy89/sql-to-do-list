@@ -2,33 +2,21 @@
 $(document).ready(readyNow); // end doc ready
 
 function clearInputs() {
-  $('#nameIn').val('');
-  $('#ageIn').val('');
-  $('#genderIn').val('');
-  $('#readyForTransferIn').val('');
-  $('#notesIn').val('');
+  $('#taskIn').val('');
 }
 
 function createTask() {
   console.log('creating task');
-  let transferIn = $('#readyForTransferIn').val();
-  let readyOut = false;
-  if (transferIn == 'Y') {
-    readyOut = true;
-  }
   let taskToSend = {
-    name: $('#nameIn').val(),
-    age: $('#ageIn').val(),
-    gender: $('#genderIn').val(),
-    transfer: readyOut,
-    notes: $('#notesIn').val(),
+    task: $('#taskIn').val(),
+    completed: $('#completed').val(),
   };
   return taskToSend;
 }
 
 function readyNow() {
-  // when addButton clicked, run saveTask
-  $('#addButton').on('click', addTask);
+  // when addTaskButton clicked, run saveTask
+  $('#addTaskButton').on('click', addTask);
   $('#viewTasks').on('click', '.btn-del-task', deleteTask);
   getTasks();
 }
@@ -36,17 +24,7 @@ function readyNow() {
 function validate(item) {
   console.log('validating');
   console.log(item);
-  if (item.name === '') {
-    console.log('user input validation test failed');
-    alert('INCOMPLETE DATA! Please do not leave any fields empty.');
-    return false;
-  }
-  else if (item.age <= 0) {
-    console.log('user input validation test failed');
-    alert('INCOMPLETE DATA! Please do not leave any fields empty.');
-    return false;
-  }
-  else if (item.notes === '') {
+  if (item.task === '') {
     console.log('user input validation test failed');
     alert('INCOMPLETE DATA! Please do not leave any fields empty.');
     return false;
@@ -74,7 +52,7 @@ function getTasks() {
 
 } // end getTasks
 
-// Adds a song to server on add button click
+// Adds a task to server on add button click
 function addTask(event) {
   event.preventDefault();
   console.log('adding a task');
@@ -92,7 +70,7 @@ function addTask(event) {
     data: task
   })
     .then(function (response) {
-      // Get the songs from the server and render them 
+      // Get the tasks from the server and render them
       // This will add the one we just added, and get any other new/changed ones
       getTasks();
       clearInputs();
@@ -107,15 +85,15 @@ function renderTasks(taskArray) {
   $('#viewTasks').empty();
   for (let task of taskArray) {
     let readyOut = 'N';
-    if (task.transfer == true) {
+    if (task.completed == true) {
       readyOut = 'Y';
     }
     let $tr = $(`<tr>
-      <td>${task.name}</td>
-      <td>${task.age}</td>
-      <td>${task.gender}</td>
+      <td>${task.task}</td>
       <td>${readyOut}</td>
-      <td>${task.notes}</td>
+      <td>
+        <button class="btn-mark-task">Mark Completed</button>
+      </td>
       <td>
         <button class="btn-del-task">Remove Task</button>
       </td>
