@@ -124,7 +124,8 @@ function renderTasks(taskArray) {
     </tr>`);
     $('#viewTasks').append($tr);
     $tr.data(task);
-    } else if (task.completed == false) {
+    // ASK MARY WHY AN ELSE STATEMENT WON'T WORK HERE
+    } else if(task.completed == false) {
       let readyOut = 'N';
       let $tr = $(`<tr>
       <td>${task.task}</td>
@@ -138,7 +139,7 @@ function renderTasks(taskArray) {
     </tr>`);
     $('#viewTasks').append($tr);
     $tr.data(task);
-    }
+    };
   };
 }
 
