@@ -82,7 +82,7 @@ function addTask(event) {
     });
 }
 
-/*
+/* // Original rendTasks function
 function renderTasks(taskArray) {
   $('#viewTasks').empty();
   for (let task of taskArray) {
@@ -106,6 +106,7 @@ function renderTasks(taskArray) {
 }
 */
 
+// renderTasks function to sort out completed tasks
 function renderTasks(taskArray) {
   $('#viewTasks').empty();
   for (let task of taskArray) {
