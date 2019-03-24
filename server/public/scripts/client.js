@@ -17,6 +17,7 @@ function createTask() {
 function readyNow() {
   // when addTaskButton clicked, run saveTask
   $('#addTaskButton').on('click', addTask);
+  $('#viewTasks').on('click', '.btn-mark-task', completeTask);
   $('#viewTasks').on('click', '.btn-del-task', deleteTask);
   getTasks();
 }
@@ -122,5 +123,32 @@ function deleteTask() {
     .catch(function () {
       console.log(`Something bad happened deleting task ${taskId}`);
       alert('Couldn\'t delete the task, try again later');
+    })
+}
+
+function completeTask() {
+  let $completeButton = $(this);
+  let $tr = $completeButton.closest('tr');
+  // let $tr = $deleteButton.parent().parent();
+  console.log('Did I get a tr???', $tr);
+
+  let taskToSend = {
+    completed: 'true'
+  };
+
+  let taskId = $tr.data('id');
+  console.log('Task id is ', taskId);
+
+  $.ajax({
+    method: 'PUT',
+    url: `/tasks/${taskId}`,
+    data: taskToSend
+  })
+    .then(function (response) {
+      getTasks();
+    })
+    .catch(function () {
+      console.log(`Something bad happened updating task ${taskId}`);
+      alert('Couldn\'t update the task, try again later');
     })
 }

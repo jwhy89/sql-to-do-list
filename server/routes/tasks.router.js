@@ -47,7 +47,7 @@ tasksRouter.put('/:id', (req, res) => {
     let taskData = req.body;
     console.log(`Updating task id=${taskId} with data`, taskData);
     let sqlText = `UPDATE "to-do-list" SET "completed"=$1 WHERE "id"=$2;`
-    pool.query(sqlText, [taskData.name, taskId])
+    pool.query(sqlText, [taskData.completed, taskId])
         .then((result) => {
             res.sendStatus(200);
         })
