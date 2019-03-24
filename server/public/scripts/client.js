@@ -82,6 +82,7 @@ function addTask(event) {
     });
 }
 
+/*
 function renderTasks(taskArray) {
   $('#viewTasks').empty();
   for (let task of taskArray) {
@@ -101,6 +102,43 @@ function renderTasks(taskArray) {
     </tr>`);
     $('#viewTasks').append($tr);
     $tr.data(task);
+  };
+}
+*/
+
+function renderTasks(taskArray) {
+  $('#viewTasks').empty();
+  for (let task of taskArray) {
+    // let readyOut = 'N';
+    if (task.completed == true) {
+    let readyOut = 'Y';
+    let $tr = $(`<tr>
+      <td>${task.task}</td>
+      <td>${readyOut}</td>
+      <td>
+        <button class="btn-mark-task" disabled>Mark Completed</button>
+      </td>
+      <td>
+        <button class="btn-del-task">Remove Task</button>
+      </td>
+    </tr>`);
+    $('#viewTasks').append($tr);
+    $tr.data(task);
+    } else if (task.completed == false) {
+      let readyOut = 'N';
+      let $tr = $(`<tr>
+      <td>${task.task}</td>
+      <td>${readyOut}</td>
+      <td>
+        <button class="btn-mark-task">Mark Completed</button>
+      </td>
+      <td>
+        <button class="btn-del-task">Remove Task</button>
+      </td>
+    </tr>`);
+    $('#viewTasks').append($tr);
+    $tr.data(task);
+    }
   };
 }
 

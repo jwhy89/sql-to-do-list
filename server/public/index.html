@@ -15,20 +15,20 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <img src="images/icon.jpg" class="icon" />
-    <h1>Jay's To-Do-List</h1>
+  <header class="text-center">
+    <img src="images/icon.jpg" class="img-fluid" alt="Responsive image"/>
+    <h1 class="font=">Jay's To-Do-List</h1>
   </header>
-  <section id="addTasks">
+  <section id="addTasks" class="text-center">
     <h2>Add Task</h2>
     <input type="text" id="taskIn" value="" placeholder="Add Task">
     <input type="text" id="completed" value="false" disabled>
     <button type="button" id="addTaskButton">Add Task</button>
   </section>
   <section>
-    <h2>All Tasks</h2>
-    <table>
-      <thead>
+    <h2 class="text-center">All Tasks</h2>
+    <table class="table table-striped">
+      <thead class="thead-dark">
         <tr>
           <th>Task</th>
           <th>Completed</th>
