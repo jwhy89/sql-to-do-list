@@ -129,7 +129,6 @@ function deleteTask() {
 function completeTask() {
   let $completeButton = $(this);
   let $tr = $completeButton.closest('tr');
-  // let $tr = $deleteButton.parent().parent();
   console.log('Did I get a tr???', $tr);
 
   let taskToSend = {
