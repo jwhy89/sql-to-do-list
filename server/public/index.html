@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Guess A Number!</title>
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  
+  <script src="vendors/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <script src="scripts/client.js"></script>
+
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <img src="images/icon.png" class="icon" />
+    <h1>Koala Holla</h1>
+    <h3>1976 Llama Comma Drive</h2>
+      <h3>Walla Walla, WA</h2>
+  </header>
+  <section id="addKoala">
+    <h2>Add Koala</h2>
+    <input type="text" id="nameIn" value="" placeholder="Name">
+    <input type="number" id="ageIn" value="" placeholder="Age">
+    <select id="genderIn">
+      <option value="M"> Male </option>
+      <option value="F"> Female </option>
+    </select>
+
+    <select id="readyForTransferIn">
+      <option value="Y"> Y </option>
+      <option value="N"> N</option>
+    </select>
+
+
+
+    <!-- <input type="text" id="genderIn" value="" placeholder="Gender">
+      <input type="text" id="readyForTransferIn" value="" placeholder="Transfer"> -->
+
+    <input type="text" id="notesIn" value="" placeholder="Notes">
+    <button type="button" id="addButton">Add Koala</button>
+  </section>
+  <section>
+    <h2>All Koalas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Ready for Transfer</th>
+          <th>Notes</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody id="viewKoalas">
+      </tbody>
+    </table>
+  </section>
+</body>
+
+</html>
