@@ -1,7 +1,7 @@
 CREATE TABLE "to-do-list"
 (
     -- This tells the database to automatically generate keys for us
-    "id"serial primary key,
+    "id"serial primary key not null,
     -- varchar - variable (length) characters better for storage space
     "task" varchar(250) not null,
     -- Not null makes the value required
