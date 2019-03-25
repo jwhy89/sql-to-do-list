@@ -111,7 +111,7 @@ function renderTasks(taskArray) {
   $('#viewTasks').empty();
   for (let task of taskArray) {
     // let readyOut = 'N';
-    if (task.completed == true) {
+    if (task.completed === true) {
     let readyOut = 'Y';
     let $tr = $(`<tr>
       <td>${task.task}</td>
