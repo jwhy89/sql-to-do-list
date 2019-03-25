@@ -132,10 +132,10 @@ function renderTasks(taskArray) {
       <td>${task.task}</td>
       <td>${readyOut}</td>
       <td>
-        <button class="btn-mark-task">Mark Completed</button>
+        <button class="btn-mark-task btn btn-success">Mark Completed</button>
       </td>
       <td>
-        <button class="btn-del-task">Remove Task</button>
+        <button class="btn-del-task btn btn-danger">Remove Task</button>
       </td>
     </tr>`);
     $('#viewTasks').append($tr);
