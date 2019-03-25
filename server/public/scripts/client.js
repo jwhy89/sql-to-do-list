@@ -126,7 +126,7 @@ function renderTasks(taskArray) {
     $('#viewTasks').append($tr);
     $tr.data(task);
     // ASK MARY WHY AN ELSE STATEMENT WON'T WORK HERE
-    } else if(task.completed == false) {
+    } else { //if(task.completed == false) {
       let readyOut = 'N';
       let $tr = $(`<tr>
       <td>${task.task}</td>
