@@ -1,5 +1,5 @@
 {
-  "name": "weekend-sql-to-do-list",
+  "name": "sql-to-do-list",
   "version": "1.0.0",
   "description": "Hello Primers!",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jwhy89/weekend-sql-to-do-list.git"
+    "url": "git+https://github.com/jwhy89/sql-to-do-list.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jwhy89/weekend-sql-to-do-list/issues"
+    "url": "https://github.com/jwhy89/sql-to-do-list/issues"
   },
-  "homepage": "https://github.com/jwhy89/weekend-sql-to-do-list#readme",
+  "homepage": "https://github.com/jwhy89/sql-to-do-list#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
