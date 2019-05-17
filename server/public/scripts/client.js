@@ -1,10 +1,11 @@
-
 $(document).ready(readyNow); // end doc ready
 
+// clear inputs on the form
 function clearInputs() {
   $('#taskIn').val('');
 }
 
+// create new task for ajax post request
 function createTask() {
   console.log('creating task');
   let taskToSend = {
@@ -14,6 +15,7 @@ function createTask() {
   return taskToSend;
 }
 
+// jQuery event listener
 function readyNow() {
   // when addTaskButton clicked, run saveTask
   $('#addTaskButton').on('click', addTask);
@@ -22,6 +24,7 @@ function readyNow() {
   getTasks();
 }
 
+// form validation preventing empty form to be added to database
 function validate(item) {
   console.log('validating');
   console.log(item);
@@ -110,7 +113,7 @@ function renderTasks(taskArray) {
 function renderTasks(taskArray) {
   $('#viewTasks').empty();
   for (let task of taskArray) {
-    // let readyOut = 'N';
+    // if statement to disabled the mark completed status
     if (task.completed === true) {
     let readyOut = 'Y';
     let $tr = $(`<tr>
@@ -125,8 +128,8 @@ function renderTasks(taskArray) {
     </tr>`);
     $('#viewTasks').append($tr);
     $tr.data(task);
-    // ASK MARY WHY AN ELSE STATEMENT WON'T WORK HERE
-    } else { //if(task.completed == false) {
+    // else statment to allow the task to be marked completed
+    } else {
       let readyOut = 'N';
       let $tr = $(`<tr>
       <td>${task.task}</td>
@@ -144,6 +147,7 @@ function renderTasks(taskArray) {
   };
 }
 
+// delete task from the database
 function deleteTask() {
   let $deleteButton = $(this);
   let $tr = $deleteButton.closest('tr');
@@ -166,6 +170,7 @@ function deleteTask() {
     })
 }
 
+// update task to the database
 function completeTask() {
   let $completeButton = $(this);
   let $tr = $completeButton.closest('tr');

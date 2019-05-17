@@ -1,10 +1,18 @@
-# Name of Application
+# Jay's To-Do-List
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+This was one of my first full stack web applications that I was able to get online and onto the Internet. I used jQuery to manage my app and Bootstrap to style it. It was an amazing feeling to get something like this up and running.
 
 ## Built With
 
-List technologies and frameworks here
+- JavaScript
+- Node
+- Express
+- Bootstrap
+- HTML
+- CSS
+- jQuery
+- Ajax
+- PostgreSQL
 
 ## Getting Started
 
@@ -15,7 +23,11 @@ These instructions will get you a copy of the project up and running on your loc
 Link to software that is required before you attempt to start the app (e.g. node, mongo).
 
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- [PostrgeSQL](https://www.postgresql.org/)
+
+### Create Database and Table
+
+Create a new database called `weekend-to-do-app` and run the SQL query from the todoDatabase.sql file. 
 
 
 ### Installing
@@ -23,31 +35,21 @@ Link to software that is required before you attempt to start the app (e.g. node
 Steps to get the development environment running.
 
 1. Download this project.
-2. `npm install`
-3. `npm start`
-
-And so on...
-
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+2. Start postgres if not running already by using `brew services start postgresql`
+3. `npm install`
+4. `npm start`
+6. Navigate to `localhost:5000` on your preferred web browser.
 
 ### Completed Features
 
-High level list of items completed.
-
-- [x] Feature a
-- [x] Feature b
+- [x] Add a task to the database.
+- [x] Delete a task.
+- [x] Mark a task as complete.
+- [x] Set up app to scale with different screen sizes.
 
 ### Next Steps
 
-Features that you would like to add at some point in the future.
-
-- [ ] Set up app to scale with different screen sizes.
+- [ ] Convert to a React application.
 
 ## Deployment
 
@@ -55,9 +57,4 @@ Add additional notes about how to deploy this on a live system.
 
 ## Authors
 
-* Jarvis
-
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
+* Jarvis Yang
