@@ -53,7 +53,7 @@ Steps to get the development environment running.
 
 ## Deployment
 
-1. In terminal, navigate to your project folder and type heroku create.
+1. In terminal, navigate to your project folder and type `heroku create`.
 2. Login in if prompted.
 3. Type `git remote -v` to ensure it was added successfully.
 4. In terminal, type `git push heroku master`.
