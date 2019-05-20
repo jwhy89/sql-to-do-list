@@ -7,7 +7,7 @@
  database: 'prime_app',
  change `prime_app` to the name of your database, and you should be all set!
 */
-
+require('dotenv').config();
 const pg = require('pg');
 const url = require('url');
 
@@ -32,6 +32,8 @@ if (process.env.DATABASE_URL) {
 } else {
     config = {
         host: 'localhost', // Server hosting the postgres database
+        user: 'postgres',
+        password: process.env.DB_PASS,
         port: 5432, // env var: PGPORT
         database: 'weekend-to-do-app', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
         max: 10, // max number of clients in the pool
