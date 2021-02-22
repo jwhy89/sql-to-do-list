@@ -13,7 +13,7 @@ const url = require('url');
 
 let config = {};
 
-if (process.env.DATABASE_URL) {
+if (!process.env.DATABASE_URL) {
     // Heroku gives a url, not a connection object
     // https://github.com/brianc/node-pg-pool
     const params = url.parse(process.env.DATABASE_URL);
@@ -31,11 +31,13 @@ if (process.env.DATABASE_URL) {
     };
 } else {
     config = {
-        host: 'localhost', // Server hosting the postgres database
-        port: 5432, // env var: PGPORT
-        database: 'weekend-to-do-app', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
-        max: 10, // max number of clients in the pool
-        idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+      user: process.env.PG_USER || null, //env var: PGUSER
+      password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
+      host: process.env.DATABASE_SERVER || 'localhost', // Server hosting the postgres database
+      port: process.env.DATABASE_PORT || 5432, //env var: PGPORT
+      atabase: process.env.DATABASE_NAME || 'weekend-to-do-app', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
+      max: 10, // max number of clients in the pool
+      idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
     };
 }
 
